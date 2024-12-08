@@ -1,8 +1,0 @@
-com/olikue/redflags/repository/IdentifierRepository.class
-com/olikue/redflags/model/Identifier.class
-com/olikue/redflags/service/IdentifierService.class
-com/olikue/redflags/RedflagsApplication.class
-com/olikue/redflags/model/Flag.class
-com/olikue/redflags/controller/IdentifierController.class
-com/olikue/redflags/HelloController.class
-com/olikue/redflags/HelloController$MyResponse.class
