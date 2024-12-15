@@ -19,8 +19,6 @@ class RedflagsApplicationTests {
 		// Example test
 		Identifier identifier = new Identifier();
 		identifier.setName("TestIdentifier");
-		identifier.setFlagA(true);
-		identifier.setFlagB(false);
 
 		Identifier savedIdentifier = identifierRepository.save(identifier);
 

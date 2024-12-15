@@ -1,25 +1,23 @@
 package com.olikue.redflags.model;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
+@Table(name = "identifier")
 public class Identifier {
 
     @Id
     @GeneratedValue
     private UUID id; // Unique identifier
 
-    @Column(nullable = false, unique = true)
-    private String name; // Human-readable identifier name
+    private String name;
 
-    @Column(nullable = false)
-    private boolean flagA; // Example flag
+    private LocalDateTime createdAt = LocalDateTime.now();
 
-    @Column(nullable = false)
-    private boolean flagB; // Another flag
+    private LocalDateTime updatedAt = LocalDateTime.now();
 
-    // Getters and Setters
     public UUID getId() {
         return id;
     }
@@ -36,19 +34,25 @@ public class Identifier {
         this.name = name;
     }
 
-    public boolean isFlagA() {
-        return flagA;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void setFlagA(boolean flagA) {
-        this.flagA = flagA;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public boolean isFlagB() {
-        return flagB;
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setFlagB(boolean flagB) {
-        this.flagB = flagB;
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    // Add `@PreUpdate` for `updatedAt` to auto-update timestamps
+    @PreUpdate
+    public void updateTimestamp() {
+        this.updatedAt = LocalDateTime.now();
     }
 }

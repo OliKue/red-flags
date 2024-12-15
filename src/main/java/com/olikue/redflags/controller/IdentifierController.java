@@ -35,11 +35,6 @@ public class IdentifierController {
         return identifierService.createIdentifier(identifier);
     }
 
-    @PutMapping("/{id}/flags")
-    public Identifier updateFlags(@PathVariable UUID id, @RequestParam boolean flagA, @RequestParam boolean flagB) {
-        return identifierService.updateFlags(id, flagA, flagB);
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteIdentifier(@PathVariable UUID id) {
         identifierService.deleteIdentifier(id);

@@ -27,15 +27,13 @@ class IdentifierControllerTest {
     void testCreateAndRetrieveIdentifier() {
         Identifier newIdentifier = new Identifier();
         newIdentifier.setName("TestIdentifier");
-        newIdentifier.setFlagA(true);
-        newIdentifier.setFlagB(false);
 
         ResponseEntity<Identifier> response = restTemplate.postForEntity("/api/identifiers", newIdentifier, Identifier.class);
         assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
 
         List<Identifier> identifiers = identifierRepository.findAll();
         assertThat(identifiers).hasSize(1);
-        assertThat(identifiers.get(0).getName()).isEqualTo("TestIdentifier");
+        assertThat(identifiers.getFirst().getName()).isEqualTo("TestIdentifier");
     }
 }
 

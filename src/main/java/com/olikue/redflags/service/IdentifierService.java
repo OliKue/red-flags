@@ -31,13 +31,6 @@ public class IdentifierService {
         return identifierRepository.save(identifier);
     }
 
-    public Identifier updateFlags(UUID id, boolean flagA, boolean flagB) {
-        Identifier identifier = getIdentifierById(id);
-        identifier.setFlagA(flagA);
-        identifier.setFlagB(flagB);
-        return identifierRepository.save(identifier);
-    }
-
     public void deleteIdentifier(UUID id) {
         identifierRepository.deleteById(id);
     }
